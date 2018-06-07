@@ -1,0 +1,10 @@
+package com.gfi.microservicios.rules
+
+import com.gfi.microservicios.model.Item;
+import com.gfi.microservicios.model.Item.Category;
+rule "Classify Item - Low Range"
+    when
+        $i: Item(cost < 200)
+    then
+        $i.setCategory(Category.LOW_RANGE);
+end
